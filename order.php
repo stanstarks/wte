@@ -1,10 +1,5 @@
 <?php
-$db_host = 'localhost';
-$db_user = 'root';
-$db_pwd = '';
-
-$database = 'WTE';
-$ti = 'orders';
+include "vars.php";
 
 $price = $_POST['price'];
 $distance = $_POST['distance'];
