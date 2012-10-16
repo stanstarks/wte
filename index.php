@@ -125,7 +125,7 @@ $i = 0;
     			<input type="text" id=distance name=distance placeholder="How long you want to walk?" required tabindex="2" /> 
 				
 				<p><label for="deadline">Time</label></p> 
-    			<input type="text" id=deadline name=deadline placeholder="Eat before hh:mm" tabindex="3" /> 
+    			<input type="text" id=deadline name=deadline placeholder="Do you want to eat before hH:MM?" tabindex="3" /> 
     			<!-- 
     			<p><label for="comment">Extra Message</label></p> 
     			<textarea name="comment" id="comment" tabindex="4"></textarea> 
@@ -140,9 +140,9 @@ $i = 0;
     	
     		<h2 class="intro">Hand-coded <strong>HTML</strong> and <strong>CSS</strong> is what I do. <span class="sub">It's what I'm good at so why not?</span></h2>
     		
-    		<a class="featured" href="http://inspectelement.com"><img src="images/featured.gif" alt="Inspect Element large preview" /></a>
+    		<!--<a class="featured" href="http://inspectelement.com"><img src="images/featured.gif" alt="Inspect Element large preview" /></a>
     		
-    		<p>Featured Project: <a href="#">Inspect Element</a></p>
+    		<p>Featured Project: <a href="#">Inspect Element</a></p>-->
     				
     	</section>
 
