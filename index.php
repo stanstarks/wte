@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <!-- This is a demonstration of HTML5 goodness with healthy does of CSS3 mixed in -->
 <head>
-    
     <title>428: Where to Eat?</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    			
+
     <!--[if IE]>
     	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -16,7 +14,7 @@
     <![endif]-->
     
     <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
-    
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js" type="text/javascript"></script>
     <script src="js/jquery.anchor.js" type="text/javascript"></script>
     <script src="js/jquery.fancybox-1.2.6.pack.js" type="text/javascript"></script>
@@ -24,13 +22,9 @@
 </head>
 
 <body>
-
     <header> <!-- HTML5 header tag -->
-    
     	<div id="headercontainer">
-    
     		<h1><a class="checklink anchorLink" href="#check">Where To Eat?</a></h1>
-    		
     		<nav> <!-- HTML5 navigation tag -->
     			<ul>
     				<li><a class="orderlink anchorLink" href="#order">Order</a></li>
@@ -39,33 +33,33 @@
     				<li><a class="portfoliolink anchorLink" href="#portfolio">Browse</a></li>
     			</ul>				
     		</nav>
-    	
     	</div>
-    
     </header>
 
     <section id="contentcontainer"> <!-- HTML5 section tag for the content 'section' -->
 
-		<section id="check"> <!-- HTML5 section tag for the about 'section' -->
 <?php
 include "vars.php";
-
-if (!mysql_connect($db_host, $db_user, $db_pwd))
-    die("Can't connect to database: {$db_user}@{$db_host}");
+?>
+<?php
+if (!mysql_connect($db_host, $db_user, $db_pwd)){
+    die("<section id=\"dberr\"><h2 class=\"order\">Database Failure</h2><p>Can't connect to database.</p></section>");
+}
 
 if (!mysql_select_db($database))
-    die("Can't select database");
+    die("<section id=\"dberr\"><h2 class=\"order\">Database Failure</h2><p>Can't select database.</p></section>");
 
 $result = mysql_query("SELECT * FROM {$ti}");
 if (!$result) {
-    die("Query to show fields from table failed");
+    die("<section id=\"dberr\"><h2 class=\"order\">Database Failure</h2><p>Query to show fields from table failed.</p></section>");
 }
 $num = mysql_num_rows($result);
 $i = 0;
 ?>
+
+		<section id="check"> <!-- HTML5 section tag for the about 'section' -->
     		<h2 class="check">Check Order</h2>
-    		
-    		<p>TODO: add table style</p>
+    		<p>Your IP (<?php echo getenv("REMOTE_ADDR"); ?>) will appear on the order you submit.</p>
 			<p><b> Found a mistake in your submission?</b> Don't worry, just resubmit your order and your former order will be deleted.</p>
 			<!-- Table markup-->
 
@@ -108,7 +102,7 @@ $i = 0;
 
 </table>
 			<p>After everyone has submitted his result: <a href="dice.php">Roll the Dice!</a></p>
-			<p>Since everyone is satisfied... <a href="delete.php">Delete the Orders</a></p>
+			<p>Since everyone is satisfied... <a href="delete.php">Clear the Orders</a>.</p>
     	</section>
 		<section id="order"> <!-- HTML5 section tag for the contact 'section' -->
     	
@@ -189,10 +183,7 @@ $i = 0;
     			<li><a href="http://inspectelement.com/articles/code-a-backwards-compatible-one-page-portfolio-with-html5-and-css3">Back to the Tutorial on Inspect Element</a></li>
     		</ul>
     	
-    	</footer>	
-    
+    	</footer>
     </section>
-    
 </body>
-
 </html>
