@@ -51,7 +51,7 @@ $price = $prices[array_rand($prices, 1)];
 $dist = $dists[array_rand($dists, 1)];
 mysql_query("SET CHARACTER SET utf8");
 mysql_query("SET NAMES 'utf8'");
-$place = mysql_query("SELECT name,count FROM {$tr} WHERE price<={$price} AND distance<={$dist} ORDER BY count LIMIT 1");
+$place = mysql_query("SELECT name,count FROM {$tr} WHERE price<={$price} AND distance<={$dist} AND ( lunch_end > NOW() OR (dinner_start < NOW() AND dinner_end > NOW())) ORDER BY count LIMIT 1");
 
 if (!$place) {
     echo "<p>We'd better wait for some orders and try again later.</p>";
